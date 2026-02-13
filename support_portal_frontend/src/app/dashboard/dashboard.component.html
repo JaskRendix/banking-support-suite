@@ -1,0 +1,23 @@
+<h2>Transactions</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Reference</th>
+      <th>Status</th>
+      <th>Exposure</th>
+      <th>Error Code</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let t of transactions">
+      <td>{{ t.id }}</td>
+      <td>{{ t.transactionRef }}</td>
+      <td [class]="t.status.toLowerCase()">{{ t.status }}</td>
+      <td>{{ t.exposureAmount }}</td>
+      <td>{{ t.errorCode || '-' }}</td>
+    </tr>
+  </tbody>
+</table>

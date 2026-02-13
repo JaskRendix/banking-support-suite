@@ -1,0 +1,6 @@
+loan_id,customer_name,exposure_at_default,probability_of_default,loss_given_default,sector
+L001,Global Tech Corp,1500000.00,0.02,0.45,Technology
+L002,Main Street Retail,500000.00,0.08,0.35,Retail
+L003,BioHealth Inc,2200000.00,0.01,0.40,Healthcare
+L004,BuildIt Construction,850000.00,0.12,0.50,Construction
+L005,Invalid Data Co,-100.00,0.05,0.40,Finance
