@@ -1,0 +1,38 @@
+name: IT Ops Toolkit Checks
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  run-ops-tools:
+    name: Run Health Check & Log Analyzer
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Make health_check.sh executable
+        run: chmod +x it_ops_automation_toolkit/scripts/health_check.sh
+
+      - name: Run health check script
+        run: |
+          ./it_ops_automation_toolkit/scripts/health_check.sh \
+            | tee health_check_output.txt
+
+      - name: Run log analyzer
+        run: |
+          python3 it_ops_automation_toolkit/scripts/log_analyzer.py \
+            it_ops_automation_toolkit/data/app.log \
+            | tee log_analysis_output.txt
+
+      - name: Upload results as artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ops-toolkit-results
+          path: |
+            health_check_output.txt
+            log_analysis_output.txt
