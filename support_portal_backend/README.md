@@ -88,7 +88,7 @@ GET /api/support/transactions/status/{status}
 
 ---
 
-## 🗄 Using the H2 Database
+## Using the H2 Database
 
 ### Open the H2 Console  
 Navigate to:

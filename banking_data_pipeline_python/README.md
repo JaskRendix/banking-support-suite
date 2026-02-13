@@ -17,7 +17,7 @@ RWA = EAD \times PD \times LGD \times 12.5
 
 ---
 
-## 🔍 Business Logic Highlights
+## Business Logic Highlights
 
 ### **Data Quality**
 - Negative exposures are automatically filtered out.
@@ -33,7 +33,7 @@ RWA = EAD \times PD \times LGD \times 12.5
 
 ---
 
-## 🚀 How to Run the Pipeline
+## How to Run the Pipeline
 
 ### **1. Install the package (editable mode recommended during development)**
 
@@ -100,7 +100,7 @@ bnp/
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Python 3.11**
 - **NumPy 1.26.4**
