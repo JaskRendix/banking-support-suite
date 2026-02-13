@@ -1,0 +1,23 @@
+# Python
+venv/
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+
+# Java / Maven
+target/
+*.log
+
+# Node / Angular
+node_modules/
+.angular/
+dist/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
