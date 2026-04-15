@@ -20,6 +20,19 @@ Each transaction includes an `errorCode` field (e.g., `MISSING_FX_RATE`, `INVALI
 
 ---
 
+## Test Suite
+
+The backend includes a focused test suite built with **MockMvc** and **Mockito**.  
+Tests use `@WebMvcTest` to isolate the web layer:
+
+- Controllers only  
+- Services and repositories mocked  
+- No database or full Spring context  
+
+This validates the API contract and keeps the test surface limited to HTTP behavior.
+
+---
+
 ## Project Structure
 
 ```
@@ -125,8 +138,6 @@ Then call:
 http://localhost:8080/api/support/transactions
 ```
 
-You’ll now see real JSON output.
-
 ---
 
 ## Resetting the Database
@@ -137,8 +148,6 @@ Since H2 is in‑memory, simply restart the backend:
 Ctrl + C
 mvn spring-boot:run
 ```
-
-The database resets automatically.
 
 ---
 
