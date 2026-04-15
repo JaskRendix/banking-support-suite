@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Make health_check.sh executable
         run: chmod +x it_ops_automation_toolkit/scripts/health_check.sh
@@ -30,7 +30,7 @@ jobs:
             | tee log_analysis_output.txt
 
       - name: Upload results as artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ops-toolkit-results
           path: |

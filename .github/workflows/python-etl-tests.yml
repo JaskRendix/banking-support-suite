@@ -17,10 +17,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
 
@@ -36,7 +36,7 @@ jobs:
           pytest --maxfail=1 --disable-warnings -q | tee pytest_output.txt
 
       - name: Upload pytest results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: etl-pytest-results-${{ matrix.python-version }}
           path: banking_data_pipeline_python/pytest_output.txt
