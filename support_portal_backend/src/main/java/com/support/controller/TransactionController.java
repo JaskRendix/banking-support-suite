@@ -1,5 +1,6 @@
 package com.support.controller;
 
+import com.support.exception.ResourceNotFoundException;
 import com.support.model.Transaction;
 import com.support.repository.TransactionRepository;
 import org.springframework.web.bind.annotation.*;
@@ -25,5 +26,11 @@ public class TransactionController {
     @GetMapping("/transactions/status/{status}")
     public List<Transaction> getTransactionsByStatus(@PathVariable String status) {
         return repository.findByStatus(status);
+    }
+
+    @GetMapping("/transactions/{id}")
+    public Transaction getTransactionById(@PathVariable Long id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Transaction not found with ID: " + id));
     }
 }

@@ -69,4 +69,14 @@ public class TransactionControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json("[]"));
     }
+
+    @Test
+    public void shouldReturn404WhenTransactionNotFound() throws Exception {
+        when(repository.findById(99L)).thenReturn(java.util.Optional.empty());
+
+        mockMvc.perform(get("/api/support/transactions/99"))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.error").value("Resource Not Found"))
+                .andExpect(jsonPath("$.message").contains("ID: 99"));
+    }
 }
