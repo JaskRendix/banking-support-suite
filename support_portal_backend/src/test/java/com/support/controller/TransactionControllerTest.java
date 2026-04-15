@@ -12,6 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.util.Arrays;
 import java.util.Collections;
 
+import static org.hamcrest.Matchers.containsString;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -77,6 +78,6 @@ public class TransactionControllerTest {
         mockMvc.perform(get("/api/support/transactions/99"))
                 .andExpect(status().isNotFound())
                 .andExpect(jsonPath("$.error").value("Resource Not Found"))
-                .andExpect(jsonPath("$.message").contains("ID: 99"));
+                .andExpect(jsonPath("$.message", containsString("ID: 99")));
     }
 }
